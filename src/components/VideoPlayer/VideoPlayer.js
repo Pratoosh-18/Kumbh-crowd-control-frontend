@@ -17,8 +17,8 @@ const VideoPlayer = ({ stream, url, muted = true }) => {
       ref={videoRef}
       autoPlay
       muted={muted}
-      controls={!stream} 
-      className="h-[400px] w-[600px]"
+      controls={!stream}
+      className="w-fit h-[300px] border-2 rounded-md"
     />
   );
 };

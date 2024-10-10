@@ -4,7 +4,7 @@ import { cameras } from '../../Constants/Cameras';
 
 const CCTVDashboardInputs = () => {
   return (
-    <div className="cctv-grid">
+    <div>
       {cameras.map((camera) => (
         <div key={camera.id} className="cctv-camera">
           <h3>{camera.label}</h3>

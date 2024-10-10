@@ -34,9 +34,9 @@ const CCTVDashboardLocal = () => {
   }, []);
 
   return (
-    <div className="cctv-grid">
+    <div className="flex flex-wrap gap-5 justify-center">
       {videoStreams.map((camera, index) => (
-        <div key={index} className="cctv-camera">
+        <div key={index} className="cctv-camera flex flex-col">
           <h3>{camera.label}</h3>
           <VideoPlayer stream={camera.stream} />
         </div>

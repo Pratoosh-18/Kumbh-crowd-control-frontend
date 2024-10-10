@@ -1,16 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-import CCTVDashboardLocal from './components/CCTVDashboardLocal/CCTVDashboardLocal';
-import CCTVDashboardInputs from './components/CCTVDashboardInputs/CCTVDashboardInputs';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
+import Login from './pages/Login';
+import Reports from './pages/Reports';
+import Navigation from './components/Navigation/Navigation';
 
-function App() {
+const App = () => {
   return (
-    <>
-    <h1>Live Camera Feeds</h1>
-    {/* <CCTVDashboardInputs/> */}
-    <CCTVDashboardLocal/>
-    </>
+    <Router>
+      <Navigation />
+      <div>
+        <Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/lost-reports" element={<Reports />} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
