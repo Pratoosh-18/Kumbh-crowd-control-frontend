@@ -1,19 +1,28 @@
-// src/components/Navigation.js
-
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import { navigationRoutes } from '../../Constants/Routes';
+import ConfirmModal from '../Modal/ConfirmModal';
 
 const Navigation = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
   const logoutUser = () => {
+    setIsModalOpen(false);
     navigate('/');
   };
 
+  const openLogoutModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
-    <nav className="bg-white px-10 py-4 shadow-md">
+    <nav className="bg-[#fdfbff] px-10 py-4 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <img src={logo} alt="Logo" className="h-10 w-auto" />
@@ -24,8 +33,8 @@ const Navigation = () => {
             <li key={route.path}>
               {route.path === '/logout' ? (
                 <button
-                  onClick={logoutUser}
-                  className="text-gray-600 hover:text-blue-600 font-semibold hover:border-b-2 hover:border-blue-600 focus:outline-none"
+                  onClick={openLogoutModal}
+                  className="text-gray-600 hover:text-[#55302c] font-semibold hover:border-b-2 hover:border-[#55302c] focus:outline-none"
                 >
                   {route.label}
                 </button>
@@ -34,8 +43,8 @@ const Navigation = () => {
                   to={route.path}
                   className={({ isActive }) =>
                     isActive
-                      ? 'text-blue-600 font-semibold border-b-2 border-blue-600'
-                      : 'text-gray-600 hover:text-blue-600 hover:border-b-2 hover:border-blue-600'
+                      ? 'text-[#55302c] font-semibold border-b-2 border-[#55302c]'
+                      : 'text-gray-600 hover:text-[#55302c] hover:border-b-2 hover:border-[#55302c]'
                   }
                 >
                   {route.label}
@@ -44,6 +53,15 @@ const Navigation = () => {
             </li>
           ))}
         </ul>
+
+        {isModalOpen && (
+          <ConfirmModal
+            message="Are you sure you want to log out?"
+            onConfirm={logoutUser}
+            onClose={closeModal}
+            confirmMessage="Logout"
+          />
+        )}
       </div>
     </nav>
   );
