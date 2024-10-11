@@ -3,13 +3,17 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import { navigationRoutes } from '../../Constants/Routes';
 import ConfirmModal from '../Modal/ConfirmModal';
+import { useUser } from '../../context/UserContext';
 
 const Navigation = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
+  const {unsetUserDetails} = useUser()
+
   const logoutUser = () => {
     setIsModalOpen(false);
+    unsetUserDetails();
     navigate('/');
   };
 
@@ -25,7 +29,9 @@ const Navigation = () => {
     <nav className="bg-[#fdfbff] px-10 py-4 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
-          <img src={logo} alt="Logo" className="h-10 w-auto" />
+          <NavLink to={"/home"}>
+            <img src={logo} alt="Logo" className="h-10 w-auto" />
+          </NavLink>
         </div>
 
         <ul className="flex space-x-6">

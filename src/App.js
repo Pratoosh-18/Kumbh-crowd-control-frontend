@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Reports from './pages/Reports';
 import Navigation from './components/Navigation/Navigation';
 import Home from './pages/Home';
+import { UserProvider } from './context/UserContext';
 
 const App = () => {
   const location = useLocation();
@@ -24,9 +25,11 @@ const App = () => {
 
 const AppWrapper = () => {
   return (
-    <Router>
-      <App />
-    </Router>
+    <UserProvider>
+      <Router>
+        <App />
+      </Router>
+    </UserProvider>
   );
 };
 

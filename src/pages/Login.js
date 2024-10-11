@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import logoFull from '../assets/logoFull.png';
 import loginBG from '../assets/loginBG.jpeg';
 import loginBG2 from '../assets/loginBG2.jpg';
+import { useUser } from '../context/UserContext';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -10,8 +11,12 @@ const Login = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
+  const {setUserDetails} = useUser()
+
   const handleLogin = async () => {
-    navigate('/dashboard');
+
+    setUserDetails({})
+    navigate('/home');
   };
 
   return (
