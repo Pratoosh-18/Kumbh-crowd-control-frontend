@@ -4,6 +4,7 @@ import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Reports from './pages/Reports';
 import Navigation from './components/Navigation/Navigation';
+import Home from './pages/Home';
 
 const App = () => {
   const location = useLocation();
@@ -13,7 +14,8 @@ const App = () => {
       {location.pathname !== '/' && <Navigation />}
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="home" element={<Home />} />
+        <Route path="/CCTVdashboard" element={<Dashboard />} />
         <Route path="/lost-reports" element={<Reports />} />
       </Routes>
     </>

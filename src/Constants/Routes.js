@@ -1,7 +1,11 @@
 export const navigationRoutes = [
     {
-      path: '/dashboard',
-      label: 'Dashboard',
+      path: '/home',
+      label: 'Home',
+    },
+    {
+      path: '/CCTVdashboard',
+      label: 'CCTV Dashboard',
     },
     {
         path: '/lost-reports',
