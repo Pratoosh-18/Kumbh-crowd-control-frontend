@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ConfirmModal = ({ message, onConfirm, onClose, confirmMessage, confirmButtonColor, confirmButtonHoverColor }) => {
+const ConfirmModal = ({ message, onConfirm, onClose, confirmMessage, confirmButtonColor }) => {
   
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">

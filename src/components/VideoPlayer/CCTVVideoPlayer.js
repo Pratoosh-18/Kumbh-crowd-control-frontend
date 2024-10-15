@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const VideoPlayer = ({ stream, url, muted = true, onVideoDetailsChange }) => {
+const CCTVVideoPlayer = ({ stream, url, muted = true, onVideoDetailsChange }) => {
   const videoRef = useRef(null);
   const [videoDetails, setVideoDetails] = useState({
     currentTime: 0,
@@ -35,7 +35,7 @@ const VideoPlayer = ({ stream, url, muted = true, onVideoDetailsChange }) => {
         ...prevDetails,
         ...newVideoDetails,
       }));
-      onVideoDetailsChange(newVideoDetails); // Pass to parent component
+      onVideoDetailsChange(newVideoDetails);
     }
   };
 
@@ -52,7 +52,7 @@ const VideoPlayer = ({ stream, url, muted = true, onVideoDetailsChange }) => {
         ...prevDetails,
         ...updatedDetails,
       }));
-      onVideoDetailsChange(updatedDetails); // Pass to parent component
+      onVideoDetailsChange(updatedDetails);
     }
   };
 
@@ -101,4 +101,4 @@ const VideoPlayer = ({ stream, url, muted = true, onVideoDetailsChange }) => {
   );
 };
 
-export default VideoPlayer;
+export default CCTVVideoPlayer;

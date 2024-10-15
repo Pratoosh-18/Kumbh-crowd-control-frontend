@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import VideoPlayer from '../VideoPlayer/VideoPlayer';
-import useVideoStreams from '../../hooks/useVideoStreams';
+import useVideoStreams from '../../hooks/useLocalVideoStreams';
 import Sidebar from '../SideBar/Sidebar';
+import CCTVVideoPlayer from '../VideoPlayer/CCTVVideoPlayer';
 
 
 const CCTVDashboardLocal = () => {
@@ -23,7 +23,7 @@ const CCTVDashboardLocal = () => {
         {videoStreams.map((camera, index) => (
           <div key={index} className="cctv-camera flex flex-col">
             <h3>{camera.label}</h3>
-            <VideoPlayer
+            <CCTVVideoPlayer
               stream={camera.stream}
               onVideoDetailsChange={(details) =>
                 handleVideoDetailsChange(index, details)

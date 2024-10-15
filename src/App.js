@@ -7,6 +7,8 @@ import Navigation from './components/Navigation/Navigation';
 import Home from './pages/Home';
 import { UserProvider } from './context/UserContext';
 import { LostReportsProvider } from './context/LostReportsContext';
+import Footer from './components/Footer/Footer';
+import Detection from './pages/Detection';
 
 const App = () => {
   const location = useLocation();
@@ -18,8 +20,10 @@ const App = () => {
         <Route path="/" element={<Login />} />
         <Route path="home" element={<Home />} />
         <Route path="/CCTVdashboard" element={<Dashboard />} />
+        <Route path="/Detection" element={<Detection />} />
         <Route path="/lost-reports" element={<Reports />} />
       </Routes>
+      {location.pathname !== '/' && <Footer />}
     </>
   );
 };
