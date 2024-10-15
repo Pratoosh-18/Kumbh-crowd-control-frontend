@@ -4,9 +4,9 @@ import ConfirmModal from '../../Modal/ConfirmModal';
 import { updateLostPersonReport } from '../../../helper/APICalls';
 
 const statusActions = {
-  found: { message: 'found', color: 'bg-blue-500' },
+  found: { message: 'found', color: 'bg-green-500' },
   lost: { message: 'not detected', color: 'bg-red-500' },
-  detected: { message: 'detected', color: 'bg-green-500' },
+  detected: { message: 'detected', color: 'bg-blue-500' },
 };
 
 const ReportCard = ({ person }) => {
@@ -64,7 +64,7 @@ const ReportCard = ({ person }) => {
         </div>
         <div className="ml-4 space-x-2">
           <button
-            className="px-4 py-2 bg-blue-500 text-white rounded disabled:bg-gray-300"
+            className="px-4 py-2 bg-green-500 text-white rounded disabled:bg-gray-300"
             onClick={() => openConfirmModal('found')}
             disabled={person.status === 'found'}
           >
@@ -79,7 +79,7 @@ const ReportCard = ({ person }) => {
           </button>
 
           <button
-            className="px-4 py-2 bg-green-500 text-white rounded disabled:bg-gray-300"
+            className="px-4 py-2 bg-blue-500 text-white rounded disabled:bg-gray-300"
             onClick={() => openConfirmModal('detected')}
             disabled={person.status !== 'lost'}
           >

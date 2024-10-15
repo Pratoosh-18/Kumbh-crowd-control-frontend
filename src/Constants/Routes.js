@@ -4,7 +4,7 @@ export const navigationRoutes = [
       label: 'Home',
     },
     {
-      path: '/CCTVdashboard',
+      path: '/CCTVDashboard',
       label: 'CCTV Dashboard',
     },
     {

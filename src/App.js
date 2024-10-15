@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Reports from './pages/Reports';
 import Navigation from './components/Navigation/Navigation';
@@ -9,6 +8,7 @@ import { UserProvider } from './context/UserContext';
 import { LostReportsProvider } from './context/LostReportsContext';
 import Footer from './components/Footer/Footer';
 import Detection from './pages/Detection';
+import CCTVDashboard from './pages/CCTVDashboard';
 
 const App = () => {
   const location = useLocation();
@@ -19,7 +19,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="home" element={<Home />} />
-        <Route path="/CCTVdashboard" element={<Dashboard />} />
+        <Route path="/CCTVDashboard" element={<CCTVDashboard />} />
         <Route path="/Detection" element={<Detection />} />
         <Route path="/lost-reports" element={<Reports />} />
       </Routes>
