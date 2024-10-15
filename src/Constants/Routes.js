@@ -8,6 +8,10 @@ export const navigationRoutes = [
       label: 'CCTV Dashboard',
     },
     {
+      path: '/AI',
+      label: 'AI',
+    },
+    {
         path: '/lost-reports',
         label: 'Lost Reports',
     },

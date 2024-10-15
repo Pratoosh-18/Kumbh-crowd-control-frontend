@@ -1,3 +1,4 @@
+// Sidebar.js
 import React from 'react';
 
 const Sidebar = ({ cameras, videoDetails }) => {
@@ -8,11 +9,11 @@ const Sidebar = ({ cameras, videoDetails }) => {
   };
 
   return (
-    <div className="bg-gray-800 text-white w-[30vw] h-full p-4">
-      <h2 className="text-lg font-bold mb-4">Connected Cameras</h2>
+    <div className="border-2 border-black w-[30vw] h-full p-4">
+      <h2 className="text-lg mb-4">Connected Cameras</h2>
       <ul className="space-y-2">
         {cameras.map((camera, index) => (
-          <li key={index} className="bg-gray-700 p-2 rounded-md hover:bg-gray-600">
+          <li key={index} className="border-2 border-black p-2 rounded-md">
             <p className="font-medium">Camera: {camera.label}</p>
             {videoDetails[index] && (
               <div className="text-sm">

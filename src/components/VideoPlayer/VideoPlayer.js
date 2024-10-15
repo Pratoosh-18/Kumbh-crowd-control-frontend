@@ -35,7 +35,7 @@ const VideoPlayer = ({ stream, url, muted = true, onVideoDetailsChange }) => {
         ...prevDetails,
         ...newVideoDetails,
       }));
-      onVideoDetailsChange(newVideoDetails);
+      onVideoDetailsChange(newVideoDetails); // Pass to parent component
     }
   };
 
@@ -52,8 +52,14 @@ const VideoPlayer = ({ stream, url, muted = true, onVideoDetailsChange }) => {
         ...prevDetails,
         ...updatedDetails,
       }));
-      onVideoDetailsChange(updatedDetails);
+      onVideoDetailsChange(updatedDetails); // Pass to parent component
     }
+  };
+
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   };
 
   return (
@@ -63,7 +69,7 @@ const VideoPlayer = ({ stream, url, muted = true, onVideoDetailsChange }) => {
         autoPlay
         muted={muted}
         controls={!stream}
-        className="w-fit h-[500px]"
+        className="w-fit h-[380px]"
         onLoadedMetadata={handleLoadedMetadata}
         onTimeUpdate={handleTimeUpdate}
         onRateChange={() =>
@@ -80,6 +86,17 @@ const VideoPlayer = ({ stream, url, muted = true, onVideoDetailsChange }) => {
           }))
         }
       />
+
+      <div className="absolute bottom-0 right-0 text-white bg-black bg-opacity-60 p-2 text-xs">
+        <p>Current Time: {formatTime(videoDetails.currentTime)}</p>
+        <p>Resolution: {videoDetails.resolution.width}x{videoDetails.resolution.height}</p>
+        <p>Buffered: {formatTime(videoDetails.buffered)}</p>
+        <p>Playback Rate: {videoDetails.playbackRate}x</p>
+        <p>Duration: {formatTime(videoDetails.duration)}</p>
+        <p>Volume: {(videoDetails.volume * 100).toFixed(0)}%</p>
+        <p>Status: {videoDetails.isPaused ? 'Paused' : 'Playing'}</p>
+        <p>Muted: {videoDetails.isMuted ? 'Yes' : 'No'}</p>
+      </div>
     </div>
   );
 };

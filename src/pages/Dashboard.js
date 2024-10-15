@@ -4,7 +4,7 @@ import CCTVDashboardLocal from '../components/CCTVDashboardLocal/CCTVDashboardLo
 const Dashboard = () => {
   return (
     <div className='h-[100vh]'>
-      <div className="bg-[#824943] p-4 text-white text-xl">Dashboard</div>
+      <div className="bg-[#664343] p-4 text-white text-xl">CCTV Dashboard</div>
       <div className="flex w-full h-auto">
         <CCTVDashboardLocal />
       </div>

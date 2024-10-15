@@ -1,6 +1,7 @@
 import React from 'react';
 
-const ConfirmModal = ({ message, onConfirm, onClose, confirmMessage }) => {
+const ConfirmModal = ({ message, onConfirm, onClose, confirmMessage, confirmButtonColor, confirmButtonHoverColor }) => {
+  
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
@@ -13,7 +14,7 @@ const ConfirmModal = ({ message, onConfirm, onClose, confirmMessage }) => {
             Back
           </button>
           <button
-            className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded"
+            className={`${confirmButtonColor} text-white py-2 px-4 rounded`}
             onClick={onConfirm}
           >
             {confirmMessage}

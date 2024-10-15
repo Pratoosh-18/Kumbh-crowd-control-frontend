@@ -1,8 +1,11 @@
 import React from 'react'
+import LostReports from '../components/LostReports/LostReports'
 
 const Reports = () => {
   return (
-    <div>Reports</div>
+    <div>
+      <LostReports/>
+    </div>
   )
 }
 

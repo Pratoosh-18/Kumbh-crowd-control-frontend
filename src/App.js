@@ -6,6 +6,7 @@ import Reports from './pages/Reports';
 import Navigation from './components/Navigation/Navigation';
 import Home from './pages/Home';
 import { UserProvider } from './context/UserContext';
+import { LostReportsProvider } from './context/LostReportsContext';
 
 const App = () => {
   const location = useLocation();
@@ -26,9 +27,11 @@ const App = () => {
 const AppWrapper = () => {
   return (
     <UserProvider>
-      <Router>
-        <App />
-      </Router>
+      <LostReportsProvider>
+        <Router>
+          <App />
+        </Router>
+      </LostReportsProvider>
     </UserProvider>
   );
 };

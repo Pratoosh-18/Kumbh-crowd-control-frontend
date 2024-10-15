@@ -66,6 +66,7 @@ const Navigation = () => {
             onConfirm={logoutUser}
             onClose={closeModal}
             confirmMessage="Logout"
+            confirmButtonColor="bg-red-500"
           />
         )}
       </div>
