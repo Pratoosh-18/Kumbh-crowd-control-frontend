@@ -33,10 +33,12 @@ const DetectionVideoInfo = () => {
                 setExceededTime(0)
                 setAlertStatus(false)
             }
-        }, 1000)
+        }, 2000)
 
         return () => clearInterval(timer)
     }, [count, exceededTime, threshold])
+
+    const maxCount = Math.max(0, ...data.map(d => d.count))
 
     return (
         <div className='w-[40%] border-2 p-4 flex flex-col items-center bg-gray-50'>
@@ -70,7 +72,7 @@ const DetectionVideoInfo = () => {
                 <LineChart data={data}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="time" />
-                    <YAxis />
+                    <YAxis domain={[0, maxCount + 100]} />  
                     <Tooltip />
                     <Legend />
                     <Line type="monotone" dataKey="count" stroke="#8884d8" activeDot={{ r: 8 }} />

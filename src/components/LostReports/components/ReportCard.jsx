@@ -56,6 +56,7 @@ const ReportCard = ({ person }) => {
         <div className="flex-1">
           <h3 className="text-lg font-bold">{person.name}</h3>
           <p>Age: {person.age}</p>
+          <p>Gender: {person.gender}</p>
           <p>Last Seen: {person.lastSeen}</p>
           <p>Parent: {person.parentName}</p>
           <p>Phone: {person.phone}</p>
