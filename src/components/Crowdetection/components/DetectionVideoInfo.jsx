@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
-import { crowdLimits } from '../../Constants/CrowdDetection'
+import { crowdLimits } from '../../../Constants/CrowdDetection'
 
 const DetectionVideoInfo = () => {
     const [count, setCount] = useState(69)
@@ -41,7 +41,7 @@ const DetectionVideoInfo = () => {
     const maxCount = Math.max(0, ...data.map(d => d.count))
 
     return (
-        <div className='w-[40%] border-2 p-4 flex flex-col items-center bg-gray-50'>
+        <div className='border-2 p-4 flex flex-col items-center bg-gray-50'>
             <h2 className='text-lg font-bold mb-2'>Crowd Detection Info</h2>
 
             <div className='text-xl mb-2'>

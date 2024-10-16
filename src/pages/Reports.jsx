@@ -3,9 +3,7 @@ import LostReports from '../components/LostReports/LostReports'
 
 const Reports = () => {
   return (
-    <div>
-      <LostReports/>
-    </div>
+    <LostReports/>
   )
 }
 
