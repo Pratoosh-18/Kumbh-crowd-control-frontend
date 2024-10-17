@@ -15,9 +15,7 @@ const ReportCard = ({ person }) => {
   const [currentAction, setCurrentAction] = useState(null);
 
   const updateReportStatus = async (status) => {
-
-    const res = await updateLostPersonReport(person.id,status)
-
+    const res = await updateLostPersonReport(person.id, status);
     const updatedReports = lostReports.map((p) =>
       p.name === person.name ? { ...p, status } : p
     );
@@ -33,54 +31,57 @@ const ReportCard = ({ person }) => {
     if (currentAction) {
       updateReportStatus(currentAction);
     }
-    setIsModalOpen(false); 
+    setIsModalOpen(false);
   };
 
   const getCardBg = (status) => {
     const statusMap = {
-      detected: 'bg-green-200',
-      lost: 'bg-red-200',
-      found: 'white',
+      detected: 'bg-blue-50',
+      lost: 'bg-red-50',
+      found: 'bg-green-50',
     };
-    return statusMap[status] || 'default-bg';
+    return statusMap[status] || 'bg-gray-100';
   };
 
   return (
     <>
-      <div className={`flex items-center p-4 shadow-md ${getCardBg(person.status)}`}>
-        <img
-          src={`https://randomuser.me/api/portraits/men/${Math.floor(Math.random() * 100)}.jpg`}
-          alt={person.name}
-          className="w-44 h-44 object-cover mr-4"
-        />
-        <div className="flex-1">
-          <h3 className="text-lg font-bold">{person.name}</h3>
-          <p>Age: {person.age}</p>
-          <p>Gender: {person.gender}</p>
-          <p>Last Seen: {person.lastSeen}</p>
-          <p>Parent: {person.parentName}</p>
-          <p>Phone: {person.phone}</p>
-          <p>Email: {person.mail}</p>
-          <p>Status: {person.status}</p>
+      <div className={`flex flex-col lg:flex-row items-center p-6 rounded-lg shadow-lg ${getCardBg(person.status)} transition duration-300 ease-in-out hover:shadow-xl`}>
+        <div className="flex-shrink-0 mb-4 lg:mb-0">
+          <img
+            src={`https://randomuser.me/api/portraits/men/${Math.floor(Math.random() * 100)}.jpg`}
+            alt={person.name}
+            className="w-40 h-40 rounded-full object-cover border-4 border-white shadow-md"
+          />
         </div>
-        <div className="ml-4 space-x-2">
+        <div className="flex-1 text-center lg:text-left lg:ml-6">
+          <h3 className="text-xl font-bold text-gray-800 mb-2">{person.name}</h3>
+          <div className="text-sm text-gray-600 space-y-1">
+            <p><span className="font-medium">Age:</span> {person.age}</p>
+            <p><span className="font-medium">Gender:</span> {person.gender}</p>
+            <p><span className="font-medium">Last Seen:</span> {person.lastSeen}</p>
+            <p><span className="font-medium">Parent:</span> {person.parentName}</p>
+            <p><span className="font-medium">Phone:</span> {person.phone}</p>
+            <p><span className="font-medium">Email:</span> {person.mail}</p>
+            <p><span className="font-medium">Status:</span> {person.status}</p>
+          </div>
+        </div>
+        <div className="mt-4 lg:mt-0 lg:ml-6 flex flex-col sm:flex-row gap-2 space-x-2">
           <button
-            className="px-4 py-2 bg-green-500 text-white rounded disabled:bg-gray-300"
+            className="px-4 py-2 bg-green-500 text-white rounded-full shadow-md hover:bg-green-600 transition duration-200 disabled:bg-gray-300 disabled:cursor-not-allowed"
             onClick={() => openConfirmModal('found')}
             disabled={person.status === 'found'}
           >
             Mark as Found
           </button>
           <button
-            className="px-4 py-2 bg-red-500 text-white rounded disabled:bg-gray-300"
+            className="px-4 py-2 bg-red-500 text-white rounded-full shadow-md hover:bg-red-600 transition duration-200 disabled:bg-gray-300 disabled:cursor-not-allowed"
             onClick={() => openConfirmModal('lost')}
             disabled={person.status === 'lost'}
           >
             Mark as Not Detected
           </button>
-
           <button
-            className="px-4 py-2 bg-blue-500 text-white rounded disabled:bg-gray-300"
+            className="px-4 py-2 bg-blue-500 text-white rounded-full shadow-md hover:bg-blue-600 transition duration-200 disabled:bg-gray-300 disabled:cursor-not-allowed"
             onClick={() => openConfirmModal('detected')}
             disabled={person.status !== 'lost'}
           >
@@ -88,7 +89,7 @@ const ReportCard = ({ person }) => {
           </button>
         </div>
       </div>
-      
+
       {isModalOpen && (
         <ConfirmModal
           message={`Are you sure you want to mark ${person.name} as ${statusActions[currentAction]?.message}?`}

@@ -1,5 +1,5 @@
 const crowdLimits = {
-    threshold:170,
+    threshold:10,
     exceededTime:3,
 }
 

@@ -21,7 +21,7 @@ const LostReports = () => {
 
     return (
       <div className="p-4 space-y-8">
-        <div>
+        <div className='mx-4 md:mx-10 lg:mx-30 xl:mx-52'>
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Lost or Detected People</h2>
           <div className="space-y-4">
             {lostOrDetected.map((person, index) => (
@@ -30,7 +30,7 @@ const LostReports = () => {
           </div>
         </div>
 
-        <div>
+        <div className='mx-4 md:mx-10 lg:mx-30 xl:mx-52'>
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Found People</h2>
           <div className="space-y-4">
             {foundPeople.map((person, index) => (

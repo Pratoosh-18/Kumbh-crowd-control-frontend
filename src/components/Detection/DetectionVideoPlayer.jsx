@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import CCTVVideoPlayer from '../../VideoPlayer/CCTVVideoPlayer'
-import useVideoStreams from '../../../hooks/useLocalVideoStreams'
+import CCTVVideoPlayer from '../VideoPlayer/CCTVVideoPlayer'
+import useVideoStreams from '../../hooks/useLocalVideoStreams'
 
 const DetectionVideoPlayer = () => {
     const [useWebcam, setUseWebcam] = useState(false);
@@ -20,16 +20,13 @@ const DetectionVideoPlayer = () => {
     };
 
     return (
-        <div className='flex flex-col items-center p-5'>
+        <div className='w-[60%] flex flex-col items-center p-5'>
             <div className='flex w-[100%] justify-between px-4 py-2'>
-                
                 <form>
                     <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         Select Detection Mode
                     </label>
-                    
                 </form>
-
                 <label className="inline-flex items-center cursor-pointer">
                     <span className="ms-3 text-sm mx-4">
                         Use Webcam

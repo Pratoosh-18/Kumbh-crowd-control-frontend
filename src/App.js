@@ -9,6 +9,7 @@ import { LostReportsProvider } from './context/LostReportsContext';
 import Footer from './components/Footer/Footer';
 import Detection from './pages/Detection';
 import CCTVDashboard from './pages/CCTVDashboard';
+import AppProvider from './context/AppContext';
 
 const App = () => {
   const location = useLocation();
@@ -30,13 +31,15 @@ const App = () => {
 
 const AppWrapper = () => {
   return (
-    <UserProvider>
-      <LostReportsProvider>
-        <Router>
-          <App />
-        </Router>
-      </LostReportsProvider>
-    </UserProvider>
+    <AppProvider>
+      <UserProvider>
+        <LostReportsProvider>
+          <Router>
+            <App />
+          </Router>
+        </LostReportsProvider>
+      </UserProvider>
+    </AppProvider>
   );
 };
 
